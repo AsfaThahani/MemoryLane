@@ -21,6 +21,16 @@
 
 ---
 
+## Screenshots
+
+### Landing & Exploration Page
+![Landing Page](ss/Landing.png)
+
+### Interactive Canvas & Journaling Workspace
+![Canvas Workspace](ss/Canvas.png)
+
+---
+
 ## Tech Stack
 
 - **Backend:** PHP (Native Session Authentication, Prepared MySQLi Statements)
