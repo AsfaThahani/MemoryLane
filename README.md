@@ -111,10 +111,3 @@ http://localhost/MemoryLane
 
 Sign up for a new account, log in, and start creating your memory canvas!
 
----
-
-## License
-
-Copyright © 2026 Asfa Thahani. All Rights Reserved.
-
-This project is proprietary and confidential. Published strictly for personal portfolio demonstration, evaluation, and code review. Unauthorized commercial use, reproduction, modification, or redistribution is strictly prohibited. See [LICENSE](LICENSE) for full legal terms.
