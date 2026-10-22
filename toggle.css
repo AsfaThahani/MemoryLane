@@ -1,0 +1,198 @@
+.toggle-container {
+    position: relative;
+    width: 64px;
+    height: 30px;
+    border: none;
+    border-radius: 999px;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15),
+                0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.toggle-container:focus-visible {
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15),
+                0 0 0 3px rgba(125, 41, 137, 0.35);
+}
+
+.toggle-sky {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.toggle-sky::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #b8c2ff 0%, #c8b8ff 50%, #d4c4ff 100%);
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+.toggle-sky::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #0f1035 0%, #1a1550 50%, #2a1b5e 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.toggle-container.dark .toggle-sky::before { opacity: 0; }
+.toggle-container.dark .toggle-sky::after  { opacity: 1; }
+
+.toggle-cloud {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.toggle-cloud-1 {
+    width: 12px; height: 12px;
+    right: 10px; bottom: 3px;
+}
+
+.toggle-cloud-2 {
+    width: 16px; height: 9px;
+    right: 3px; bottom: 4px;
+    border-radius: 999px;
+}
+
+.toggle-cloud-3 {
+    width: 8px; height: 8px;
+    right: 20px; bottom: 2px;
+}
+
+.toggle-container.dark .toggle-cloud { opacity: 0; }
+
+.toggle-star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.15s;
+    z-index: 1;
+}
+
+.toggle-star-1 {
+    width: 3px; height: 3px;
+    left: 10px; top: 6px;
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.6);
+}
+
+.toggle-star-2 {
+    width: 2px; height: 2px;
+    left: 26px; top: 10px;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);
+}
+
+.toggle-star-3 {
+    width: 4px; height: 4px;
+    left: 17px; top: 18px;
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.7);
+}
+
+.toggle-star-4 {
+    width: 2px; height: 2px;
+    left: 34px; top: 8px;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);
+}
+
+.toggle-container.dark .toggle-star { opacity: 1; }
+
+.toggle-circle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: transparent;
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s ease;
+    z-index: 2;
+}
+
+.toggle-container:active .toggle-circle {
+    transform: scale(0.94);
+}
+
+.toggle-container.dark .toggle-circle {
+    left: calc(100% - 27px);
+}
+
+.toggle-sun {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%,
+                                #ffe066 0%,
+                                #fdd835 55%,
+                                #e6b800 100%);
+    box-shadow: 0 0 8px 2px rgba(253, 216, 53, 0.55),
+                0 2px 5px rgba(230, 184, 0, 0.35);
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.toggle-moon {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%,
+                                #ffffff 0%,
+                                #ececec 55%,
+                                #d4d4d4 100%);
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.35),
+                0 2px 5px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: rotate(-90deg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.toggle-moon::before,
+.toggle-moon::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(180, 180, 180, 0.5);
+}
+
+.toggle-moon::before {
+    width: 6px; height: 6px;
+    top: 45%; left: 55%;
+}
+
+.toggle-moon::after {
+    width: 4px; height: 4px;
+    top: 22%; left: 30%;
+}
+
+.toggle-container.dark .toggle-sun {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.toggle-container.dark .toggle-moon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+body.dark-mode {
+    background-color: #0f0f14;
+    background-image: url('stars.png');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f0f0f5;
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
