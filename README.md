@@ -6,18 +6,18 @@
 [![HTML5](https://img.shields.io/badge/HTML5-Modern%20Markup-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-Responsive%20Styling-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-MemoryLane is a digital scrapbook and journaling web app I built to learn web development with database persistence. Users can draw on an interactive canvas, add stickers and personal photos, pick background textures, and save their pages to a MySQL database tied to their account. I built it end to end — frontend canvas logic, PHP backend, and the relational database schema.
+MemoryLane is a digital scrapbook and journaling web app I built to learn web development with database persistence. Users can draw on an interactive canvas, add stickers and personal photos, pick background textures, and save their pages to a MySQL database tied to their account. I built it end to end: frontend canvas logic, PHP backend, and the relational database schema.
 
 ---
 
 ## Core Features
 
-- **Interactive Canvas Editor** — HTML5 Canvas drawing area with freehand sketching, adjustable brush sizes, and color palettes.
-- **Custom Image Uploads & Stickers** — Upload personal photos and decorate pages with stickers, pins, and background textures.
-- **User Authentication & Session Security** — Multi-user login and registration with BCrypt password hashing (`password_hash` / `password_verify`).
-- **Canvas Persistence** — Save canvas layouts to the MySQL database, linked to the authenticated user.
-- **Saved Memory Gallery** — Load, view, and continue editing past scrapbook pages tied to your account.
-- **Confetti Animation** — Plays celebratory confetti (`canvas-confetti`) when you save a new page.
+- **Interactive Canvas Editor:** HTML5 Canvas drawing area with freehand sketching, adjustable brush sizes, and color palettes.
+- **Custom Image Uploads & Stickers:** Upload personal photos and decorate pages with stickers, pins, and background textures.
+- **User Authentication & Session Security:** Multi-user login and registration with BCrypt password hashing (`password_hash` / `password_verify`).
+- **Canvas Persistence:** Save canvas layouts to the MySQL database, linked to the authenticated user.
+- **Saved Memory Gallery:** Load, view, and continue editing past scrapbook pages tied to your account.
+- **Confetti Animation:** Plays celebratory confetti (`canvas-confetti`) when you save a new page.
 
 ---
 
@@ -44,8 +44,8 @@ MemoryLane is a digital scrapbook and journaling web app I built to learn web de
 
 The schema in `schema.sql` defines two relational tables:
 
-- **`users`** — registered accounts with hashed credentials (`id`, `username`, `email`, `password`, `created_at`).
-- **`canvas_pages`** — user-created scrapbook pages and snapshot references, with cascade delete (`id`, `user_id`, `title`, `image_path`, `created_at`).
+- **`users`:** registered accounts with hashed credentials (`id`, `username`, `email`, `password`, `created_at`).
+- **`canvas_pages`:** user-created scrapbook pages and snapshot references, with cascade delete (`id`, `user_id`, `title`, `image_path`, `created_at`).
 
 ---
 
@@ -61,7 +61,7 @@ I built `signup.php` and `login.php` without a framework, which meant handling p
 Early on I was building queries with string concatenation. Switching to prepared MySQLi statements in `db.php` and the save/load scripts made me understand the difference between "it works" and "it's safe."
 
 **File paths and uploads in XAMPP**
-Getting uploaded images and stickers to resolve correctly between the browser, PHP, and the `uploads/` folder was a constant source of bugs — especially relative vs. absolute paths. Debugging this taught me a lot about how a local web server actually serves files.
+Getting uploaded images and stickers to resolve correctly between the browser, PHP, and the `uploads/` folder was a constant source of bugs, especially relative vs. absolute paths. Debugging this taught me a lot about how a local web server actually serves files.
 
 **Structuring a project across multiple modules**
 Splitting logic into `canvas.js` (drawing + stickers), `stickers.js` (sticker definitions), `save_canvas.php` / `load_canvas.php` (persistence), and `db.php` (connection) forced me to think about separation of concerns instead of putting everything in one file.
